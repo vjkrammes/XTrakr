@@ -11,6 +11,7 @@ public partial class MainViewModel
     private readonly IPayeeService _payeeService;
     private readonly IExpenseTypeService _expenseTypeService;
 
+    private readonly AboutViewModel _aboutViewModel;
     private readonly DashboardViewModel _dashboardViewModel;
     private readonly ExpenseViewModel _expenseViewModel;
     private readonly ExpenseTypeViewModel _expenseTypeViewModel;

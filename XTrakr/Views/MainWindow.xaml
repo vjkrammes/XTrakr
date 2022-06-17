@@ -19,9 +19,10 @@
         <KeyBinding Command="{Binding AddCommand}" Key="OemPlus" />
         <KeyBinding Command="{Binding AddCommand}" Key="Insert" />
         <KeyBinding Command="{Binding AddCommand}" Key="Add" />
+        <KeyBinding Command="{Binding AboutCommand}" Key="A" Modifiers="Alt" />
+        <KeyBinding Command="{Binding DashboardCommand}" Key="D" Modifiers="Alt"/>
         <KeyBinding Command="{Binding ExpenseTypesCommand}" Key="E" Modifiers="Alt" />
         <KeyBinding Command="{Binding PayeesCommand}" Key="P" Modifiers="Alt" />
-        <KeyBinding Command="{Binding DashboardCommand}" Key="D" Modifiers="Alt"/>
     </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
@@ -78,7 +79,11 @@
             </Button>
             <Separator />
             <Button Command="{Binding DashboardCommand}" ToolTip="Go to the Dashboard" ToolTipService.ShowOnDisabled="True">
-                <Image Source="/resources/project-32.png" />
+                <Image Source="/resources/graph-32.png" />
+            </Button>
+            <Separator />
+            <Button Command="{Binding AboutCommand}" ToolTip="About" ToolTipService.ShowOnDisabled="True">
+                <Image Source="/resources/info-32.png" />
             </Button>
         </ToolBar>
         <Grid Grid.Row="2" Margin="5">

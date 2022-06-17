@@ -22,9 +22,13 @@ public partial class App : Application
 
     public App()
     {
-        Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NjU3ODk2QDMyMzAyZTMxMmUzMEJOa1RFY3Vxc2lGTFRFVktOWXkzcDBGSFhmbWp6d1ZIUjgyM05rRDFrYWs9");
         var services = new ServiceCollection();
         Configuration = new ConfigurationFactory().Create("appsettings.json", isOptional: false);
+        var sflicense = Configuration["Licenses:Syncfusion"];
+        if (!string.IsNullOrWhiteSpace(sflicense))
+        {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(sflicense);
+        }
         ConfigureServices(services, Configuration);
         services.AddSingleton(x => x);
         ServiceProvider = services.BuildServiceProvider();
@@ -77,6 +81,7 @@ public partial class App : Application
 
         // View Models
 
+        services.AddTransient<AboutViewModel>();
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<ExpenseViewModel>();
         services.AddTransient<ExpenseTypeViewModel>();

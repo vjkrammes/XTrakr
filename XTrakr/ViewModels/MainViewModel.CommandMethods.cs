@@ -192,6 +192,6 @@ public partial class MainViewModel
 
     private void AboutClick()
     {
-
+        DialogSupport.ShowDialog<AboutWindow>(_aboutViewModel, Application.Current.MainWindow);
     }
 }

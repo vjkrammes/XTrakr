@@ -9,7 +9,7 @@
         xmlns:xm="clr-namespace:XTrakr.MarkupExtensions"
         xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=vm:DashboardViewModel, IsDesignTimeCreatable=False}" Icon="/resources/project-32.png"
+        d:DataContext="{d:DesignInstance Type=vm:DashboardViewModel, IsDesignTimeCreatable=False}" Icon="/resources/graph-32.png"
         xi:Behaviors.WindowLoadedBehavior="{Binding WindowLoadedCommand}" xi:DialogCloser.DialogResult="{Binding DialogResult}"
         Title="Dashboard" Height="768" Width="1024" WindowStartupLocation="CenterOwner" WindowStyle="ThreeDBorderWindow">
     <Window.Resources>

@@ -257,8 +257,7 @@ public class DashboardViewModel : ViewModelBase
         var filename = sfd.FileName;
         var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
-            NewLine = Environment.NewLine,
-            
+            NewLine = Environment.NewLine,            
         };
         using var writer = new StreamWriter(filename);
         using var csv = new CsvWriter(writer, config);

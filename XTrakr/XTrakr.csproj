@@ -74,6 +74,7 @@
     <None Remove="resources\large-32.png" />
     <None Remove="resources\link-32.png" />
     <None Remove="resources\lock-32.png" />
+    <None Remove="resources\logo-64.png" />
     <None Remove="resources\map-32.png" />
     <None Remove="resources\medium-32.png" />
     <None Remove="resources\memory-24.png" />
@@ -211,6 +212,7 @@
     <Resource Include="resources\large-32.png" />
     <Resource Include="resources\link-32.png" />
     <Resource Include="resources\lock-32.png" />
+    <Resource Include="resources\logo-64.png" />
     <Resource Include="resources\map-32.png" />
     <Resource Include="resources\medium-32.png" />
     <Resource Include="resources\memory-24.png" />
