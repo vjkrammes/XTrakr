@@ -3,6 +3,8 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
+using XTrakr.Models;
+
 namespace XTrakr.Infrastructure;
 
 // convert from int (count) to visibility where 0 = Collapsed else Visible, inverted with parm
@@ -53,6 +55,8 @@ public sealed class CountToEnabledConverter : IValueConverter
     public object ConvertBack(object value, Type t, object parm, CultureInfo lang) => DependencyProperty.UnsetValue;
 }
 
+// convert from boolean to visibility where true = visible else collapsed, inverted with parm
+
 [ValueConversion(typeof(bool), typeof(Visibility), ParameterType = typeof(bool))]
 public sealed class BoolToVisibilityConverter : IValueConverter
 {
@@ -75,6 +79,8 @@ public sealed class BoolToVisibilityConverter : IValueConverter
     public object ConvertBack(object value, Type t, object parm, CultureInfo lang) => DependencyProperty.UnsetValue;
 }
 
+// convert from full path name to just the icon name
+
 [ValueConversion(typeof(string), typeof(string))]
 public sealed class IconToNameConverter : IValueConverter
 {
@@ -88,6 +94,8 @@ public sealed class IconToNameConverter : IValueConverter
     }
     public object ConvertBack(object value, Type t, object parm, CultureInfo lang) => DependencyProperty.UnsetValue;
 }
+
+// convert to / from decimal and string
 
 [ValueConversion(typeof(decimal), typeof(string))]
 public sealed class DecimalConverter : IValueConverter
@@ -117,4 +125,20 @@ public sealed class DecimalConverter : IValueConverter
         }
         return d;
     }
+}
+
+// convert from exploreritemtype to icon uri
+
+[ValueConversion(typeof(ExplorerItem), typeof(Uri))]
+public sealed class ExplorerItemToIconConverter : IValueConverter
+{
+    public object Convert(object value, Type t, object parm, CultureInfo lang)
+    {
+        if (value is ExplorerItem item)
+        {
+            return item.Type.GetIconFromEnumValue()!;
+        }
+        return null!;
+    }
+    public object ConvertBack(object value, Type t, object parm, CultureInfo lang) => DependencyProperty.UnsetValue;
 }

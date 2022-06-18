@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
 using XTrakr.Common;
+using XTrakr.Common.Attributes;
 
 namespace XTrakr.Infrastructure;
 public static class ExtensionMethods
@@ -24,4 +26,10 @@ public static class ExtensionMethods
             errorHandler?.Invoke(ex);
         }
     }
+
+    public static Uri? GetIconFromEnumValue<T>(this T value) where T : Enum =>
+        typeof(T)
+            .GetField(value.ToString())!
+            .GetCustomAttributes(typeof(ExplorerIconAttribute), false)
+            .SingleOrDefault() is not ExplorerIconAttribute attr ? null : new Uri(attr.ExplorerIcon, UriKind.Relative);
 }

@@ -56,6 +56,7 @@ public partial class App : Application
         // Miscellaneous services
 
         services.AddTransient<IConfigurationFactory, ConfigurationFactory>();
+        services.AddTransient<IExplorerService, ExplorerService>();
 
         // Database and DatabaseBuilder
 
@@ -82,9 +83,11 @@ public partial class App : Application
         // View Models
 
         services.AddTransient<AboutViewModel>();
+        services.AddTransient<BackupViewModel>();
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<ExpenseViewModel>();
         services.AddTransient<ExpenseTypeViewModel>();
+        services.AddTransient<ExplorerViewModel>();
         services.AddTransient<MainViewModel>();
         services.AddTransient<ManagePayeesViewModel>();
         services.AddTransient<PayeeViewModel>();

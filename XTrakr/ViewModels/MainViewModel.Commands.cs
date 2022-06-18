@@ -135,6 +135,19 @@ public partial class MainViewModel
         }
     }
 
+    private RelayCommand? _backupCommand;
+    public ICommand BackupCommand
+    {
+        get
+        {
+            if (_backupCommand is null)
+            {
+                _backupCommand = new(parm => BackupClick(), parm => AlwaysCanExecute());
+            }
+            return _backupCommand;
+        }
+    }
+
     private RelayCommand? _aboutCommand;
     public ICommand AboutCommand
     {

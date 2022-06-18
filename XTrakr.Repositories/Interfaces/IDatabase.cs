@@ -6,6 +6,7 @@ namespace XTrakr.Repositories.Interfaces;
 public interface IDatabase
 {
     string ConnectionString { get; }
+    string Name { get; }
     bool DatabaseExists();
     bool TableExists(string tableName);
     bool ColumnExists(string tableName, string columnName);

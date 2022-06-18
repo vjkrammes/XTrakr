@@ -82,6 +82,10 @@
                 <Image Source="/resources/graph-32.png" />
             </Button>
             <Separator />
+            <Button Command="{Binding BackupCommand}" ToolTip="Back up the database" ToolTipService.ShowOnDisabled="True">
+                <Image Source="/resources/backup-database-32.png" />
+            </Button>
+            <Separator />
             <Button Command="{Binding AboutCommand}" ToolTip="About" ToolTipService.ShowOnDisabled="True">
                 <Image Source="/resources/info-32.png" />
             </Button>

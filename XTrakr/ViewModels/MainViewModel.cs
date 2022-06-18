@@ -7,7 +7,8 @@ namespace XTrakr.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     public MainViewModel(IExpenseService expenseService, IPayeeService payeeService, IExpenseTypeService expenseTypeService, AboutViewModel aboutViewModel,
-        DashboardViewModel dashboardViewModel, ExpenseViewModel expenseViewModel, ExpenseTypeViewModel expenseTypeViewModel, ManagePayeesViewModel managePayeesViewModel)
+        BackupViewModel backupViewModel, DashboardViewModel dashboardViewModel, ExpenseViewModel expenseViewModel, ExpenseTypeViewModel expenseTypeViewModel, 
+        ManagePayeesViewModel managePayeesViewModel)
     {
         WindowTitle = $"{Constants.ProgramName} Version {Constants.ProgramVersion:n2}";
         Banner = "XTrakr - Track Expenses for your LLC";
@@ -15,6 +16,7 @@ public partial class MainViewModel : ViewModelBase
         _payeeService = payeeService;
         _expenseTypeService = expenseTypeService;
         _aboutViewModel = aboutViewModel;
+        _backupViewModel = backupViewModel;
         _dashboardViewModel = dashboardViewModel;
         _expenseViewModel = expenseViewModel;
         _expenseTypeViewModel = expenseTypeViewModel;

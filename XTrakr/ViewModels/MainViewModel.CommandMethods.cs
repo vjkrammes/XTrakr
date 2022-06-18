@@ -190,6 +190,11 @@ public partial class MainViewModel
         DialogSupport.ShowDialog<DashboardWindow>(_dashboardViewModel, Application.Current.MainWindow);
     }
 
+    private void BackupClick()
+    {
+        DialogSupport.ShowDialog<BackupWindow>(_backupViewModel, Application.Current.MainWindow);
+    }
+
     private void AboutClick()
     {
         DialogSupport.ShowDialog<AboutWindow>(_aboutViewModel, Application.Current.MainWindow);

@@ -9,10 +9,9 @@ namespace XTrakr.Repositories;
 public class Database : IDatabase
 {
     private readonly string _baseConnectionString;
-    private readonly string _databaseName;
-
-    private string _connectionString => $"{_baseConnectionString};Database={_databaseName}";
+    private string _connectionString => $"{_baseConnectionString};Database={Name}";
     public string ConnectionString => _connectionString;
+    public string Name { get; }
 
     public Database(string server, string database, string auth = "Trusted_Connection=true")
     {
@@ -25,7 +24,7 @@ public class Database : IDatabase
             throw new ArgumentNullException(nameof(database));
         }
         _baseConnectionString = $"Server={server};Timeout=10;{auth};Pooling=true;MultipleActiveResultSets=true;";
-        _databaseName = database;
+        Name = database;
     }
 
     public bool DatabaseExists()
@@ -34,7 +33,7 @@ public class Database : IDatabase
         conn.Open();
         var sql = "select database_id from sys.databases where name=@name;";
         using var command = new SqlCommand(sql, conn);
-        command.Parameters.Add(new("name", _databaseName));
+        command.Parameters.Add(new("name", Name));
         try
         {
             var result = command.ExecuteScalar();
@@ -90,7 +89,7 @@ public class Database : IDatabase
         conn.Open();
         var sql = "select COLUMN_NAME from INFORMATION_SCHEMA.COLUMNS where TABLE_CATALOG=@dbn and TABLE_NAME=@tbn and COLUMN_NAME=@col;";
         using var command = new SqlCommand(sql, conn);
-        command.Parameters.Add(new("dbn", _databaseName));
+        command.Parameters.Add(new("dbn", Name));
         command.Parameters.Add(new("tbn", tableName));
         command.Parameters.Add(new("col", columnName));
         var reader = command.ExecuteReader();
@@ -135,7 +134,7 @@ public class Database : IDatabase
         conn.Open();
         var sql = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_TYPE='BASE TABLE' and TABLE_CATALOG=@dbn order by TABLE_NAME;";
         using var command = new SqlCommand(sql, conn);
-        command.Parameters.Add(new("dbn", _databaseName));
+        command.Parameters.Add(new("dbn", Name));
         var reader = command.ExecuteReader();
         while (reader.Read())
         {
@@ -172,13 +171,13 @@ public class Database : IDatabase
         {
             return;
         }
-        var sql = $"create database [{_databaseName}]";
+        var sql = $"create database [{Name}]";
         var connectionString = $"{_baseConnectionString};Database=master";
         using var conn = new SqlConnection(connectionString);
         conn.Open();
         if (!string.IsNullOrWhiteSpace(location))
         {
-            sql += $" on (name='{_databaseName}.mdb', filename='{location}')";
+            sql += $" on (name='{Name}.mdb', filename='{location}')";
         }
         sql += ";";
         using var command = new SqlCommand(sql, conn);
@@ -202,7 +201,7 @@ public class Database : IDatabase
         {
             return;
         }
-        var sql = $"drop database [{_databaseName}];";
+        var sql = $"drop database [{Name}];";
         var connectionString = $"{_baseConnectionString};Database=master;";
         using var conn = new SqlConnection(connectionString);
         conn.Open();
@@ -227,7 +226,7 @@ public class Database : IDatabase
         {
             return;
         }
-        var sql = $"backup database [{_databaseName}] to disk = @loc with init;";
+        var sql = $"backup database [{Name}] to disk = @loc with init;";
         using var conn = new SqlConnection(_baseConnectionString);
         conn.Open();
         using var command = new SqlCommand(sql, conn);
@@ -252,7 +251,7 @@ public class Database : IDatabase
         {
             return;
         }
-        var sql = $"restore database [{_databaseName}] from disk = @loc;";
+        var sql = $"restore database [{Name}] from disk = @loc;";
         using var conn = new SqlConnection(_baseConnectionString);
         conn.Open();
         using var command = new SqlCommand(sql, conn);
