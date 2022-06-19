@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 using XTrakr.Infrastructure;
 using XTrakr.Models;
-using XTrakr.Services.Interfaces;
 
 namespace XTrakr.ViewModels;
 
@@ -71,6 +67,16 @@ public class ExpenseViewModel : ViewModelBase
     }
 
     #endregion
+
+    public override void Reset()
+    {
+        base.Reset();
+        SelectedPayee = null;
+        SelectedExpenseType = null;
+        Amount = string.Empty;
+        Reference = string.Empty;
+        Description = string.Empty;
+    }
 
     public ExpenseViewModel() => ExpenseDate = DateTime.Now;
 }

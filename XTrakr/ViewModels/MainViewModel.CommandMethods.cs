@@ -48,6 +48,11 @@ public partial class MainViewModel
         {
             return;
         }
+        if (_expenseViewModel.SelectedPayee is null && _expenseViewModel.SelectedExpenseType is null && string.IsNullOrWhiteSpace(_expenseViewModel.Amount) ||
+            string.IsNullOrWhiteSpace(_expenseViewModel.Description))
+        {
+            return;
+        }
         if (_expenseViewModel.SelectedPayee is null)
         {
             PopupManager.Popup("No Payee was selected", "Missing Payee", PopupButtons.Ok, PopupImage.Stop);
