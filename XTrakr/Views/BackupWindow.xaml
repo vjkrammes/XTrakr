@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:XTrakr.Views"
         xmlns:vm="clr-namespace:XTrakr.ViewModels"
         xmlns:xi="clr-namespace:XTrakr.Infrastructure"
+        xmlns:xm="clr-namespace:XTrakr.MarkupExtensions"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:BackupViewModel, IsDesignTimeCreatable=False}" Icon="/resources/backup-database-32.png"
         xi:DialogCloser.DialogResult="{Binding DialogResult}"
@@ -88,7 +89,7 @@
                         </ListView.ContextMenu>
                     </ListView>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.5" Text="No Files Found"
-                               Visibility="{Binding Files.Count, Converter={StaticResource VisibilityConverter}}"/>
+                               Visibility="{Binding Files.Count, Converter={StaticResource VisibilityConverter}, ConverterParameter={xm:Bool True}}"/>
                 </Grid>
             </Grid>
         </GroupBox>
