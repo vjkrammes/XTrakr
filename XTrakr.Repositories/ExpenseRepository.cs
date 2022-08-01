@@ -51,7 +51,7 @@ public class ExpenseRepository : RepositoryBase<ExpenseEntity>, IExpenseReposito
             return await GetAsync();
         }
         var sb = new StringBuilder("select * from Expenses where");
-        bool andNeeded = false;
+        var andNeeded = false;
         if (year != 0)
         {
             sb.Append($" YEAR(ExpenseDate) = {year}");

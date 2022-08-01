@@ -200,6 +200,11 @@ public partial class MainViewModel
         DialogSupport.ShowDialog<BackupWindow>(_backupViewModel, Application.Current.MainWindow);
     }
 
+    private void IncomeClick()
+    {
+        DialogSupport.ShowDialog<IncomeWindow>(_incomeViewModel, Application.Current.MainWindow);
+    }
+
     private void AboutClick()
     {
         DialogSupport.ShowDialog<AboutWindow>(_aboutViewModel, Application.Current.MainWindow);

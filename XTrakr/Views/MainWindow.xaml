@@ -86,6 +86,10 @@
                 <Image Source="/resources/backup-database-32.png" />
             </Button>
             <Separator />
+            <Button Command="{Binding IncomeCommand}" ToolTip="Income" ToolTipService.ShowOnDisabled="True">
+                <Image Source="/resources/money-32.png" />
+            </Button>
+            <Separator />
             <Button Command="{Binding AboutCommand}" ToolTip="About" ToolTipService.ShowOnDisabled="True">
                 <Image Source="/resources/info-32.png" />
             </Button>

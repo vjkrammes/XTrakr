@@ -113,5 +113,14 @@ namespace XTrakr.Services {
                 return ResourceManager.GetString("Required", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} required..
+        /// </summary>
+        internal static string RequiredAlt {
+            get {
+                return ResourceManager.GetString("RequiredAlt", resourceCulture);
+            }
+        }
     }
 }

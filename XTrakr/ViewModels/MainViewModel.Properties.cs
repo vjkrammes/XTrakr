@@ -16,6 +16,7 @@ public partial class MainViewModel
     private readonly DashboardViewModel _dashboardViewModel;
     private readonly ExpenseViewModel _expenseViewModel;
     private readonly ExpenseTypeViewModel _expenseTypeViewModel;
+    private readonly IncomeViewModel _incomeViewModel;
     private readonly ManagePayeesViewModel _managePayeesViewModel;
 
     private string? _windowTitle;

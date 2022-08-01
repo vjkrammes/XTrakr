@@ -148,6 +148,19 @@ public partial class MainViewModel
         }
     }
 
+    private RelayCommand? _incomeCommand;
+    public ICommand IncomeCommand
+    {
+        get
+        {
+            if (_incomeCommand is null)
+            {
+                _incomeCommand = new RelayCommand(parm => IncomeClick(), parm => AlwaysCanExecute());
+            }
+            return _incomeCommand;
+        }
+    }
+
     private RelayCommand? _aboutCommand;
     public ICommand AboutCommand
     {

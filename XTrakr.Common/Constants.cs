@@ -4,7 +4,7 @@ public static class Constants
     public const int NameLength = 50;
     public const int UriLength = 256;
 
-    public const double ProgramVersion = 2.0;
+    public const double ProgramVersion = 3.0;
 
     public const string Alt0 = "Alt0";
     public const string Alt1 = "Alt1";
